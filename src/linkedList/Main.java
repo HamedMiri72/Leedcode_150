@@ -10,6 +10,7 @@ public class Main {
         linkedList.insertFirstElemnet(2);
         linkedList.insertFirstElemnet(5);
         linkedList.insertFirstElemnet(7);
+        linkedList.insertLast(16);
 
         linkedList.disply();
 
