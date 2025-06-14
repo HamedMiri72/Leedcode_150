@@ -25,6 +25,15 @@ public class LL {
        size++;
    }
 
+   public void disply(){
+       Node temp = head;
+       while(temp != null){
+           System.out.println(temp.value);
+           temp = temp.next;
+       }
+
+   }
+
    private class Node{
 
        private int value;
