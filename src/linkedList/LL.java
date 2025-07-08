@@ -13,28 +13,51 @@ public class LL {
        this.size  = 0;
    }
 
-   public void insertFirstElemnet(int value){
-       Node node = new Node(value);
+    private class Node{
+
+        private int value;
+        private Node next;
+
+        public Node(int value){
+            this.value = value;
+        }
+
+        public Node(int value, Node next){
+
+            this.value = value;
+            this.next = next;
+
+        }
+    }
+
+
+    public void insertFirstElemnet(int val){
+
+       Node node = new Node(val);
 
        node.next = head;
+
        head = node;
 
        if(tail == null){
            tail = head;
        }
        size++;
-   }
+    }
 
-   public void insertLast(int val){
+
+    public void insertLast(int val){
+
        if(tail == null){
            insertFirstElemnet(val);
            return;
        }
+
        Node node = new Node(val);
        tail.next = node;
        tail = node;
        size++;
-   }
+    }
 
    public void insert(int val, int index){
 
@@ -42,6 +65,7 @@ public class LL {
            insertFirstElemnet(val);
            return;
        }
+
        if(index == size){
            insertLast(val);
            return;
@@ -56,6 +80,8 @@ public class LL {
        size++;
 
    }
+
+
 
    public int deleteFirst(){
 
@@ -103,13 +129,20 @@ public class LL {
        return val;
    }
 
-   public Node get(int index){
+
+    public Node get(int index){
+
        Node node = head;
-       for(int i = 0; i < index; i++){
-           node = node.next;
-       }
-       return node;
-   }
+
+        for (int i = 1; i < index ; i++) {
+
+            node.next = node;
+        }
+        return node;
+    }
+    
+
+
    public void disply(){
        Node temp = head;
        while(temp != null){
@@ -119,21 +152,6 @@ public class LL {
 
    }
 
-   private class Node{
 
-       private int value;
-       private Node next;
-
-       public Node(int value){
-           this.value = value;
-       }
-
-       public Node(int value, Node next){
-
-           this.value = value;
-           this.next = next;
-
-       }
-   }
 
 }
