@@ -13,13 +13,16 @@ public class Main {
 //
 //        linkedList.printList();
 
-        LinkedList linkedList = new LinkedList(1);
-        linkedList.append(2);
+        LinkedList linkedList = new LinkedList(2);
+        linkedList.append(3);
+        linkedList.prepend(1);
+        linkedList.printList();
 
 
-        System.out.println(linkedList.removeLast().value);
-        System.out.println(linkedList.removeLast().value);
-        System.out.println(linkedList.removeLast());
+
+//        System.out.println(linkedList.removeLast().value);
+//        System.out.println(linkedList.removeLast().value);
+//        System.out.println(linkedList.removeLast());
 
 
     }
