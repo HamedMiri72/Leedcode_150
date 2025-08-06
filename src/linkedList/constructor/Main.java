@@ -18,6 +18,9 @@ public class Main {
         linkedList.prepend(1);
         linkedList.printList();
 
+        linkedList.deleteFirst();
+
+        linkedList.printList();
 
 
 //        System.out.println(linkedList.removeLast().value);
