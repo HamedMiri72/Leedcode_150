@@ -27,6 +27,9 @@ public class Main {
 //        linkedList.deleteFirst();
 //
         linkedList.printList();
+        linkedList.insert(6, 2);
+
+        linkedList.printList();
 
 
 //        System.out.println(linkedList.removeLast().value);
