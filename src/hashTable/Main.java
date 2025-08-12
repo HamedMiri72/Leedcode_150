@@ -6,5 +6,7 @@ public class Main {
         HashTable table = new HashTable();
 
         table.printTable();
+
+
     }
 }
