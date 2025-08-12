@@ -2,40 +2,29 @@ package linkedList.constructor;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-//        LinkedList linkedList = new LinkedList(4);
-//        linkedList.append(3);
-//
-//        linkedList.getHead();
-//        linkedList.getTail();
-//        linkedList.getLength();
-//
-//        linkedList.printList();
+        LinkedList list = new LinkedList(4);
 
-        LinkedList linkedList = new LinkedList(0);
-        linkedList.append(1);
-        linkedList.append(2);
-        linkedList.append(3);
+        list.printList();
+        list.getTail();
+        list.getHead();
+        list.getLength();
 
-        System.out.println(linkedList.get(2).value);
-        System.out.println(linkedList.set(2,5));
-//        linkedList.append(3);
-//        linkedList.prepend(1);
-//        linkedList.printList();
-//
-//        linkedList.deleteFirst();
-//
-        linkedList.printList();
-        linkedList.insert(6, 2);
+        list.append(3);
+        list.printList();
 
-        linkedList.printList();
+        list.removeLast();
+        list.printList();
 
+        System.out.println("------------");
 
-//        System.out.println(linkedList.removeLast().value);
-//        System.out.println(linkedList.removeLast().value);
-//        System.out.println(linkedList.removeLast());
+        list.prepend(1);
+        list.printList();
 
+        System.out.println(list.get(1).value);
 
     }
+
+
 }

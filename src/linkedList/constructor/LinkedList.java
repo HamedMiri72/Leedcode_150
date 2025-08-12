@@ -1,11 +1,13 @@
 package linkedList.constructor;
 
+
+import java.net.URLEncoder;
+
 public class LinkedList {
 
     private Node head;
     private Node tail;
     private int length;
-
 
     class Node{
         int value;
@@ -23,6 +25,7 @@ public class LinkedList {
         length = 1;
     }
 
+
     public void printList(){
         Node temp = head;
         while(temp != null){
@@ -32,21 +35,20 @@ public class LinkedList {
     }
 
     public void getHead(){
-        System.out.println("head " + head.value);
+        System.out.println("head: " + head.value);
     }
 
     public void getTail(){
-        System.out.println("tail " + tail.value);
+        System.out.println("tail: " + tail.value);
     }
 
     public void getLength(){
-        System.out.println("length " + length);
+        System.out.println("length: " + length);
     }
 
     public void append(int value){
-        Node newNode  = new Node(value);
-
-        if(length == 0){
+        Node newNode = new Node(value);
+        if (length == 0) {
             head = newNode;
             tail = newNode;
         }else{
@@ -56,18 +58,22 @@ public class LinkedList {
         length++;
     }
 
-    public Node removeLast() {
-        if (length == 0) return null;
+    public Node removeLast(){
+
+        if(length == 0){
+            return null;
+        }
         Node temp = head;
-        Node pre = head;
-        while(temp.next != null) {
-            pre = temp;
+        Node prev = head;
+
+        while(temp.next != null){
+            prev = temp;
             temp = temp.next;
         }
-        tail = pre;
+        tail = prev;
         tail.next = null;
         length--;
-        if (length == 0) {
+        if(length == 0){
             head = null;
             tail = null;
         }
@@ -78,8 +84,8 @@ public class LinkedList {
 
         Node newNode = new Node(value);
         if(length == 0){
-            head = newNode;
             tail = newNode;
+            head = newNode;
         }else{
             newNode.next = head;
             head = newNode;
@@ -87,16 +93,13 @@ public class LinkedList {
         length++;
     }
 
-    public Node removeFirst(){
-
-        if (length == 0){
+    private Node removeFirst(){
+        if(length == 0){
             return null;
         }
-
         Node temp = head;
         head = head.next;
         temp.next = null;
-
         length--;
         if(length == 0){
             tail = null;
@@ -105,19 +108,16 @@ public class LinkedList {
     }
 
     public Node get(int index){
-
-        if(index < 0 || index > length){
-            return null;
-        }
+        if(index < 0 || index >= length) return null;
         Node temp = head;
-
-        for(int i=0; i < index; i++){
+        for(int i = 0; i < index; i++){
             temp = temp.next;
         }
         return temp;
     }
 
     public boolean set(int index, int value){
+
         Node temp = get(index);
         if(temp != null){
             temp.value = value;
@@ -126,11 +126,9 @@ public class LinkedList {
         return false;
     }
 
-    public boolean insert(int value, int index){
+    public boolean insert(int index, int value){
 
-        if(index < 0 || index > length){
-            return false;
-        }
+        if(index < 0 || index > length) return false;
         if(index == 0){
             prepend(value);
             return true;
@@ -150,7 +148,7 @@ public class LinkedList {
     public Node remove(int index){
 
         if(index < 0 || index >= length){
-            return  null;
+            return null;
         }
         if(index == 0){
             return removeFirst();
@@ -158,13 +156,26 @@ public class LinkedList {
         if(index == length - 1){
             return removeLast();
         }
-        Node pre = get(index - 1);
-        Node temp = pre.next;
-        pre.next = temp.next;
+
+        Node prev = get(index - 1);
+        Node temp = prev.next;
+        prev.next = temp.next;
         temp.next = null;
-        length--;
         return temp;
+    }
 
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
 
+        Node after = temp.next;
+        Node before = null;
+        for(int i = 0; i < length; i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
     }
 }
