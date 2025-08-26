@@ -1,0 +1,6 @@
+Java Stream API makes data processing easy
+Streams can be sequential or parallel
+Functional programming in Java
+Filter and map are powerful operations
+Learning Streams step by step
+Practice makes perfect with Streams
